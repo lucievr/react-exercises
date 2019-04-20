@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fox Contacts</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+      body {
+        text-align: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: rgb(199, 195, 143);
+      }
+      h1 {
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      }
+      img {
+        border-radius: 10px;
+        box-shadow: 2px 2px 2px 2px rgb(141, 140, 140);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      function ContactCard(props) {
+        console.log(props);
+        return (
+          <div className="contact-card">
+            <img src={props.contact.imgUrl} />
+            <h3>{props.contact.name}</h3>
+            <p>Phone: {props.contact.phone}</p>
+            <p>Email: {props.contact.email}</p>
+          </div>
+        );
+      }
+
+      function App() {
+        return (
+          <div className="contacts">
+            <h1> Fox Contacts</h1>
+            <ContactCard
+              contact={{
+                name: "Mr. Cunningson",
+                imgUrl:
+                  "https://images.unsplash.com/photo-1516565275008-d696d19666e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500",
+                phone: "(212) 555-1234",
+                email: "mr.cunningson@gmail.fox"
+              }}
+            />
+
+            <ContactCard
+              contact={{
+                name: "Veronica Vixen",
+                imgUrl:
+                  "https://images.unsplash.com/photo-1522162363424-d29ded2ad958?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500",
+                phone: "(212) 555-2345",
+                email: "fluff@me.com"
+              }}
+            />
+
+            <ContactCard
+              contact={{
+                name: "Senor Arctico",
+                imgUrl:
+                  "https://images.unsplash.com/photo-1486812917436-a1592a550f26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500",
+                phone: "(212) 555-3456",
+                email: "srarctico@yahoo.com"
+              }}
+            />
+
+            <ContactCard
+              contact={{
+                name: "Lady von Fennec",
+                imgUrl:
+                  "https://images.unsplash.com/photo-1538099384082-c33e0239c424?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500",
+                phone: "(212) 555-4567",
+                email: "ladyfennec@hotmail.com"
+              }}
+            />
+          </div>
+        );
+      }
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
